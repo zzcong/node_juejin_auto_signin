@@ -26,7 +26,7 @@ const draw = async () => {
     await sendEmail('免费抽奖：失败', JSON.stringify(data))
   } else {
     log(`恭喜抽到：${data.data.lottery_name}`)
-    await sendEmail(`恭喜抽到：${data.data.lottery_name}`)
+    await sendEmail(`恭喜抽到：${data.data.lottery_name}`, JSON.stringify(data))
   }
 }
 
