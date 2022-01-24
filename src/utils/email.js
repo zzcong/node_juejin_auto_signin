@@ -8,7 +8,6 @@ const { getConfig, log } = require('./util')
 const sendEmail = async (subject, html) => {
   html += '<p><img src="https://p9-passport.byteacctimg.com/img/user-avatar/4c2a6c6768f65e8237d7593aceaf91f8~300x300.image"/></p>'
   let config = getConfig().email.wy126
-  log(config)
   const transporter = nodeMailer.createTransport({
     host: config.host,
     port: config.port,
@@ -24,7 +23,11 @@ const sendEmail = async (subject, html) => {
     subject: subject,
     html: html
   }, err => {
-    if (err) return log(`发送邮件失败：${err}！`, true)
+    if (err) {
+      log(`发送邮件失败：${JSON.stringify(err)}！`, true)
+      sendEmail('发送邮件失败'，subject)
+      return
+    }
     log(`发送邮件成功！`)
   })
 }
