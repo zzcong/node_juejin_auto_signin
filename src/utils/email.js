@@ -25,7 +25,6 @@ const sendEmail = async (subject, html) => {
   }, err => {
     if (err) {
       log(`发送邮件失败：${JSON.stringify(err)}！`, true)
-      sendEmail('发送邮件失败'，subject)
       return
     }
     log(`发送邮件成功！`)
