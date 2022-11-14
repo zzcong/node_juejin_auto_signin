@@ -1,0 +1,20 @@
+{ 
+  "baseUrl": "https://api.juejin.cn",
+  "apiUrl": {
+    "getTodayState": "/growth_api/v1/get_today_status",
+    "checkIn": "/growth_api/v1/check_in",
+    "getLotteryConf": "/growth_api/v1/lottery_config/get",
+    "drawLottery": "/growth_api/v1/lottery/draw"
+  },
+  "cookie":"", 
+  "email": {
+    "wy126": {
+      "host": "smtp.126.com",
+      "port": 465,
+      "user": "xxx@126.com",
+      "from": "xxx@126.com",
+      "to": "xxx@126.com",
+      "pass": "xxx"
+    }
+  }
+}
