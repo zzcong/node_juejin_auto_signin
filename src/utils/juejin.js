@@ -28,6 +28,7 @@ const draw = async () => {
     log(`恭喜抽到：${data.data.lottery_name}`)
     await sendEmail(`恭喜抽到：${data.data.lottery_name}`, '')
   }
+  return true
 }
 
 // 查询是否签到
@@ -56,6 +57,7 @@ const checkIn = async () => {
     log(`签到成功！当前积分：${data.data.sum_point}`)
     await sendEmail('今日掘金签到：成功', JSON.stringify(data))
   }
+  return true
 }
 
 module.exports = {
