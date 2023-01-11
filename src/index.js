@@ -4,9 +4,21 @@ const juejin = require('./utils/juejin')
 
 let time = `0 0 9 * * *`
 
-let job = new CronJob('0 0 9 * * *', async () => {
-  await juejin.checkIn()
-  await juejin.draw()
+const fn = () => {
+  const time = Math.ceil(Math.random() * 3 * 3600 * 1000)
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res(true)
+    }, time)
+  })
+}
+
+let job = new CronJob('0 0 9 * * *', () => {
+  fn().then(() => {
+    return juejin.checkIn()
+  }).then(() => {
+    return juejin.draw()
+  })
 }, null, false)
 
 log('开始运行')
